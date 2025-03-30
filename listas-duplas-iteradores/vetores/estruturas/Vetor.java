@@ -36,7 +36,7 @@ public class Vetor {
     public void mostrarElementos() {
         System.out.println("-----");
         System.out.println("Elementos no vetor");
-        for (int i=0; i < tamanho; i++) {
+        for (int i=0; i < this.tamanho; i++) {
             System.out.println(this.elementos[i]);
         }
         System.out.println("-----");
@@ -91,12 +91,27 @@ public class Vetor {
         this.tamanho++;
     }
 
-    public void buscabinaria(){
-    int meio = 0;
-    if(this.tamanho -1 % 2 != 0){
-        meio = (0 + this.tamanho) / 2;
+    public void buscabinaria(int valor){
+    boolean troca = true;
+    while(troca){
+        troca = false;
+        for(int i = 0; i < this.tamanho - 1; i++){
+            if(this.elementos[i] > this.elementos[i + 1]){
+                int aux = this.elementos[i];
+                this.elementos[i] = this.elementos[i + 1];
+                this.elementos[i + 1] = aux;
+                troca = true; 
+            }
+        }
     }
-    System.out.println(meio);
-    System.out.println(this.elementos[meio]);
+    int inicio = 0;
+    int fim = this.tamanho - 1;
+    int meio;
+    while(inicio <= fim){
+        meio = (inicio + fim)/ 2;
+        if(this.elementos[meio] == valor){
+            System.out.println("parabens você é incrivel, você achou o valor" + valor + "na posição" + meio);
+        }
     }
+    }   
 }

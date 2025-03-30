@@ -10,16 +10,16 @@ public class VetorApp {
 
         vetor.adicionar(2);
         vetor.adicionar(7);
+        vetor.adicionar(27);
         vetor.adicionar(9);
-        vetor.adicionar(12);
         vetor.adicionar(16);
         vetor.adicionar(21);
-        vetor.adicionar(27);
+        vetor.adicionar(12);
         vetor.adicionar(33);
         vetor.adicionar(42);
 
-        vetor.adicionaraoinicio(5);
-    
+
         vetor.buscabinaria();
+        
     }
 }
