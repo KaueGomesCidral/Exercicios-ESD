@@ -90,4 +90,13 @@ public class Vetor {
         
         this.tamanho++;
     }
+
+    public void buscabinaria(){
+    int meio = 0;
+    if(this.tamanho -1 % 2 != 0){
+        meio = (0 + this.tamanho) / 2;
+    }
+    System.out.println(meio);
+    System.out.println(this.elementos[meio]);
+    }
 }

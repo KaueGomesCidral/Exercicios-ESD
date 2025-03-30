@@ -4,7 +4,7 @@ import estruturas.Vetor;
 public class VetorApp {
 
     public static void main(String[] args) {
-        Vetor vetor = new Vetor(10);
+        Vetor vetor = new Vetor(9);
         
         
 
@@ -17,10 +17,9 @@ public class VetorApp {
         vetor.adicionar(27);
         vetor.adicionar(33);
         vetor.adicionar(42);
-        vetor.adicionar(54);
 
         vetor.adicionaraoinicio(5);
     
-        vetor.mostrarElementos();
+        vetor.buscabinaria();
     }
 }
