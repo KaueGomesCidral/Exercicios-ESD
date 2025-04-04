@@ -38,6 +38,15 @@ public class Iterador {
         return this.atual;
     }
 
+    public No getAnterior() {
+        return this.atual.anterior;
+    }
+
+    public No getProximo() {
+        return this.atual.proximo;
+    }
+
+
     public void resetar() {
         this.atual = this.lista.inicio;
     }
@@ -55,4 +64,60 @@ public class Iterador {
         System.out.println("");
         this.proximo();
     }
+
+    public void inserirAposAtual(int dado) {
+        No novoNo = new No(dado);
+        novoNo.anterior = getAtual();
+        novoNo.proximo = getAtual().proximo;
+    
+        if (haProximo()) {
+            getAtual().proximo.anterior = novoNo;
+        }
+    
+        getAtual().proximo = novoNo;
+    }
+
+    public void removerAposAtual() {
+        if (haProximo() == false) {
+            return;
+        }
+
+    
+        No noRemovido = getAtual().proximo;
+        getAtual().proximo = noRemovido.proximo;
+    
+        if (noRemovido.proximo != null) {
+            noRemovido.proximo.anterior = getAtual();
+        }
+    }
+
+    public void inserirAntesAtual(int dado) {
+        No novoNo = new No(dado);
+        novoNo.proximo = getAtual();
+        novoNo.anterior = getAtual().anterior;
+    
+        if (haAnterior() == false) {
+            this.lista.inicio = novoNo;
+        } else {
+            getAtual().anterior.proximo = novoNo;
+        }
+    
+        getAtual().anterior = novoNo;
+    }
+    
+    public void removerAntesAtual() {
+        if (haAnterior() == false){
+            return;
+        }
+    
+        No noRemovido = getAtual().anterior;
+        getAtual().anterior = noRemovido.anterior;
+    
+        if (noRemovido.anterior != null) {
+            noRemovido.anterior.proximo = getAtual();
+        } else {
+            this.lista.inicio = getAtual();
+        }
+    }
+    
 }

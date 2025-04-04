@@ -36,7 +36,7 @@ public class Vetor {
     public void mostrarElementos() {
         System.out.println("-----");
         System.out.println("Elementos no vetor");
-        for (int i=0; i < this.tamanho; i++) {
+        for (int i=0; i < tamanho; i++) {
             System.out.println(this.elementos[i]);
         }
         System.out.println("-----");
@@ -78,6 +78,40 @@ public class Vetor {
         System.out.println("Item não encontrado");
     }
 
+    public Integer buscabinaria(Integer valor) {
+        boolean troca = true;
+        while(troca){
+        troca = false;
+        for(int i = 0; i < this.tamanho - 1; i++){
+            if(this.elementos[i] > this.elementos[i + 1]){
+                int aux = this.elementos[i];
+                this.elementos[i] = this.elementos[i + 1];
+                this.elementos[i + 1] = aux;
+                troca = true; 
+                }
+            }
+        }
+        int contador = 0;
+        int contador3 = this.elementos.length - 1;
+        int contador2;
+        int chute;
+        while (contador <= contador3) {
+            contador2 = (contador + contador3) / 2;
+            chute = this.elementos[contador2];
+            if (chute == valor) {
+                System.out.printf("No índice %d valor %d foi encontrado", contador2, valor);
+                return contador2;
+            }
+            if (chute > valor) {
+                contador3 = contador2 - 1;
+            } else {
+                contador = contador2 + 1;
+            }
+        }
+    System.out.println("Item não encontrado");
+        return null;    
+    }
+
     public void adicionaraoinicio(int valor){
         if (this.capacidade == this.tamanho) {
             this.aumentarCapacidade();
@@ -91,27 +125,5 @@ public class Vetor {
         this.tamanho++;
     }
 
-    public void buscabinaria(int valor){
-    boolean troca = true;
-    while(troca){
-        troca = false;
-        for(int i = 0; i < this.tamanho - 1; i++){
-            if(this.elementos[i] > this.elementos[i + 1]){
-                int aux = this.elementos[i];
-                this.elementos[i] = this.elementos[i + 1];
-                this.elementos[i + 1] = aux;
-                troca = true; 
-            }
-        }
-    }
-    int inicio = 0;
-    int fim = this.tamanho - 1;
-    int meio;
-    while(inicio <= fim){
-        meio = (inicio + fim)/ 2;
-        if(this.elementos[meio] == valor){
-            System.out.println("parabens você é incrivel, você achou o valor" + valor + "na posição" + meio);
-        }
-    }
-    }   
+    
 }
