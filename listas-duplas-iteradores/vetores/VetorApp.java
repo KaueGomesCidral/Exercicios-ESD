@@ -8,7 +8,6 @@ public class VetorApp {
     public static void main(String[] args) {
         Vetor vetor = new Vetor(10);
         Lista lista = new Lista();
-        Iterador iterador = new Iterador(lista, lista.inicio);
         Scanner scanner = new Scanner(System.in); 
 
         
@@ -34,6 +33,8 @@ public class VetorApp {
         lista.adicionarAoInicio(42);
         lista.adicionaraofinal(54);
         System.out.println("-----");
+
+        Iterador iterador = new Iterador(lista, lista.inicio);
 
         while (true) {
             System.out.println("Escolha uma opção:");
